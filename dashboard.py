@@ -28,7 +28,8 @@ if ask and question.strip():
         "top_k": top_k,
     }
     try:
-        st.session_state.result = requests.post(f"{API}/v1/ask", json=payload, timeout=120).json()
+        with st.spinner("Waking the server and thinking… (the first request can take ~30s)"):
+            st.session_state.result = requests.post(f"{API}/v1/ask", json=payload, timeout=120).json()
     except requests.exceptions.RequestException as e:
         st.error(f"Could not reach the API — is it running? ({e})")
 
@@ -69,8 +70,9 @@ if st.checkbox("Compare hybrid vs. dense-only retrieval"):
     body = {"question": question, "entity": entity.strip() or None,
             "strategy": strategy, "top_k": top_k}
     try:
-        hybrid = requests.post(f"{API}/v1/retrieve", json={**body, "mode": "hybrid"}).json()
-        dense  = requests.post(f"{API}/v1/retrieve", json={**body, "mode": "dense"}).json()
+        with st.spinner("Running both retrieval methods…"):
+            hybrid = requests.post(f"{API}/v1/retrieve", json={**body, "mode": "hybrid"}, timeout=120).json()
+            dense  = requests.post(f"{API}/v1/retrieve", json={**body, "mode": "dense"}, timeout=120).json()
 
         left, right = st.columns(2)
         with left:
