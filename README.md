@@ -7,7 +7,7 @@ This repo is **just the dashboard** (deployed on Streamlit Community Cloud). It 
 FastAPI backend hosted on Google Cloud Run.
 
 - **Live demo:** [DEMO](https://rag-dashboard-wcm.streamlit.app/)
-- **API backend + full source (FastAPI, Docker, retrieval pipeline):** main repo url
+- **API backend + full source (FastAPI, Docker, retrieval pipeline):** [REPO](https://github.com/CMWENDY/rag-project/tree/main)
 
 ## Configuration
 Set one secret in Streamlit Cloud (**Advanced settings → Secrets**):
