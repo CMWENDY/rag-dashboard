@@ -6,7 +6,7 @@ A Streamlit dashboard for a Retrieval-Augmented Generation (RAG) system with hyb
 This repo is **just the dashboard** (deployed on Streamlit Community Cloud). It calls a separate
 FastAPI backend hosted on Google Cloud Run.
 
-- **Live demo:** streamlit url
+- **Live demo:** [DEMO](https://rag-dashboard-wcm.streamlit.app/)
 - **API backend + full source (FastAPI, Docker, retrieval pipeline):** main repo url
 
 ## Configuration
